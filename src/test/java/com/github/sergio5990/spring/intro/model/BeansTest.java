@@ -186,6 +186,7 @@ public class BeansTest {
     void runnerTest(){
         AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext();
         context.register(Runner.class);
+        context.register(UserRepositoryImpl.class);
         context.refresh();
     }
 

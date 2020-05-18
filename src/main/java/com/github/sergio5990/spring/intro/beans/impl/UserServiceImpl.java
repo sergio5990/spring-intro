@@ -15,13 +15,16 @@ public class UserServiceImpl implements UserService {
         this.salt = "123";
     }
 
-    String validateUserAndPassword(String userName, String password){
+    @Override
+    public String validateUserAndPassword(String userName, String password) {
+        String result;
         User user = userRepository.findByUserName(userName);
-        if (isValidPassword(user.password, password)){
-            return "Ok";
+        if (isValidPassword(user.password, password)) {
+            result = "Ok";
         } else {
-            return "error";
+            result = "error";
         }
+        return result;
     }
 
     private boolean isValidPassword(String userPassword, String requestPassword) {
